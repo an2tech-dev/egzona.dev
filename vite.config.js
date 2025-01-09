@@ -12,17 +12,14 @@ export default defineConfig({
   assetsInclude: ['**/*.md'],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-      'vue': 'vue/dist/vue.esm-bundler.js'
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
   build: {
+    sourcemap: true,
     rollupOptions: {
-      external: ['vue'],
       output: {
-        globals: {
-          vue: 'Vue'
-        }
+        manualChunks: undefined
       }
     }
   }
